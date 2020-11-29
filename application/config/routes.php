@@ -4,12 +4,12 @@
             'controller' => 'account',
             'action'=>'login',
         ],
+        'PHP%20MVC/account/register' => [
+            'controller' => 'account',
+            'action'=>'register',
+        ],
         'PHP%20MVC' => [
             'controller' => 'main',
             'action'=>'index',
-        ],
-        'PHP%20MVC/news/show' => [
-            'controller' => 'news',
-            'action' => 'show',
         ]
     ];

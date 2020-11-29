@@ -36,9 +36,17 @@
 
         public function run(){
             if($this->match()){
-                $controller = 'application\controllers\\'.ucfirst($this->params['controller']).'.php';
-                if(class_exists($controller)){
-                    echo 'OK';
+                $path = 'application\controllers\\'.ucfirst($this->params['controller']).'Controller';
+
+                if(class_exists($path)){
+                    $action = $this->params['action'].'Action';
+
+                    if(method_exists($path,$action)){
+                        $controller = new $path($this->params);
+                        $controller->$action();
+                    } else{
+                        echo 'Не найден экшен '.$action;
+                    }
                 } else{
                     echo 'Класс '.ucfirst($this->params['controller']).' не найден';
                 }
