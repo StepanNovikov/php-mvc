@@ -5,12 +5,18 @@
     use application\core\Controller;
 
     class AccountController extends Controller{
+
+        public function beore(){
+            $this->view->layout = "custom";
+        }
+
         public function loginAction(){
-            echo "Страница входа";
+            $this->view->render('Вход');
         }
 
         public function registerAction(){
-            echo "Страница регистрации";
-            var_dump($this->route);
+            $this->view->layout="custom";
+            $this->view->render('Регистрация');
+
         }
     }
